@@ -13,18 +13,35 @@ struct ContentView: View {
         
         TabView {
             Tab("Home", systemImage: "house.fill") {
-                HomeView()
+                
+                NavigationStack {
+                    HomeView()
+                        .navigationTitle("Home")
+                }
+               
             }
             Tab("Search", systemImage: "magnifyingglass") {
-                SearchView()
+                NavigationStack {
+                    SearchView()
+                        .navigationTitle("Search")
+                }
             }
             Tab("Favorite", systemImage: "heart.fill") {
-                FavoriteView()
+                
+                NavigationStack {
+                    FavoriteView()
+                        .navigationTitle("Favorite")
+                }
             }
             Tab("Profile", systemImage: "person.fill") {
-                ProfileView()
+                
+                NavigationStack {
+                    ProfileView()
+                        .navigationTitle("Profile")
+                }
             }
         }
+        .tint(.orange)
         
     }
 }
