@@ -10,13 +10,15 @@ import SwiftUI
 struct LoginView: View {
     
     @AppStorage("isLoggedIn") private var isLoggedIn: Bool = false
-    
     @State private var userName: String = ""
     @State private var password: String = ""
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         
         VStack(spacing: 20) {
+            Spacer()
             Text("Login")
                 .font(.largeTitle)
                 .bold()
@@ -24,21 +26,34 @@ struct LoginView: View {
             TextField("UserName", text: $userName)
                 .padding()
                 .background(Color(.systemGray6))
-                .presentationCornerRadius(8)
-            
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .padding()
             TextField("Password", text: $password)
                 .padding()
                 .background(Color(.systemGray6))
-                .presentationCornerRadius(8)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .padding()
             
             Button("Login") {
-                if !userName.isEmpty && !password.isEmpty {
-                    isLoggedIn = true
+                if userName.isEmpty || password.isEmpty {
+                    alertMessage = "Textfield should not empty"
+                    showAlert = true
+                } else {
+                    showAlert = false
                 }
             }
             .padding()
             .background(.orange)
             .foregroundColor(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .frame(width: 200)
+            Spacer()
+            Spacer()
+        }
+        .alert("Login Error", isPresented: $showAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(alertMessage)
         }
         
         
