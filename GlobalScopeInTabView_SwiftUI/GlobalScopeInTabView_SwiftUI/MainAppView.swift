@@ -10,15 +10,15 @@ import SwiftUI
 struct MainAppView: View {
     
     @AppStorage("isLoggedIn") private var isLoggedIn = false
+    @StateObject private var appData = AppData(userName: "", userRole: "", token: "")
     
     var body: some View {        
        if isLoggedIn {
            ContentView()
+               .environmentObject(appData)
        } else {
-           LoginView()
+           LoginView(appData: appData)
        }
     }
-    
-    
     
 }

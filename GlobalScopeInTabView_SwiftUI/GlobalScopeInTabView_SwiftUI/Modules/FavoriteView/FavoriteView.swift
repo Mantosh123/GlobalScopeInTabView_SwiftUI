@@ -9,8 +9,14 @@ import SwiftUI
 
 struct FavoriteView: View {
     
+    @EnvironmentObject var appData: AppData
+
     var body: some View {
         Text("Favorite View")
+        
+        Text("user: \(appData.userName)")
+        Text("role:\(appData.userRole)")
+        Text("Token: \(appData.token)")
     }
     
 }

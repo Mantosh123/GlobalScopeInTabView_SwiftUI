@@ -15,6 +15,8 @@ struct LoginView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     
+    @ObservedObject var appData: AppData
+    
     var body: some View {
         
         VStack(spacing: 20) {
@@ -39,7 +41,12 @@ struct LoginView: View {
                     alertMessage = "Textfield should not empty"
                     showAlert = true
                 } else {
+                    appData.userName = userName
+                    appData.userRole = "admin"
+                    appData.token = "manto-kum-123"
+                    
                     showAlert = false
+                    isLoggedIn = true
                 }
             }
             .padding()

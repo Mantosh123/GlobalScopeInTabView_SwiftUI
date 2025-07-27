@@ -9,9 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @EnvironmentObject var appData: AppData
+    
     var body: some View {
         VStack {
             Text("Home View")
+            Text("user: \(appData.userName)")
+            Text("role:\(appData.userRole)")
+            Text("Token: \(appData.token)")
         }
     }
     
