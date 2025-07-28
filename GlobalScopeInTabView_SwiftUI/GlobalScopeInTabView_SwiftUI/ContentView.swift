@@ -9,16 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var appData: AppData
+    
     var body: some View {
         
         TabView {
             Tab("Home", systemImage: "house.fill") {
                 
                 NavigationStack {
-                    HomeView()
+                    HomeView(appData: appData)
                         .navigationTitle("Home")
                 }
-               
             }
             Tab("Search", systemImage: "magnifyingglass") {
                 NavigationStack {

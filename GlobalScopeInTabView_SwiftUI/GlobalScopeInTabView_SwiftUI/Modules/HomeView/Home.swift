@@ -9,14 +9,28 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @EnvironmentObject var appData: AppData
+    @ObservedObject var appData: AppData
     
     var body: some View {
         VStack {
-            Text("Home View")
-            Text("user: \(appData.userName)")
-            Text("role:\(appData.userRole)")
-            Text("Token: \(appData.token)")
+            Text("Enter User Info")
+                .bold()
+                .padding()
+            
+            TextField("Name:", text: $appData.userName)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+            TextField("Role", text: $appData.userRole)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+            TextField("Address", text: $appData.address)
+                .textFieldStyle(.roundedBorder)
+                .padding()
+            
+            Spacer()
+                        
         }
     }
     

@@ -11,12 +11,12 @@ class AppData: ObservableObject {
     
     @Published var userName: String = ""
     @Published var userRole: String = ""
-    @Published var token: String = ""
+    @Published var address: String = ""
     
-    init(userName: String, userRole: String, token: String) {
+    init(userName: String, userRole: String, address: String) {
         self.userName = userName
         self.userRole = userRole
-        self.token = token
+        self.address = address
     }
     
 }

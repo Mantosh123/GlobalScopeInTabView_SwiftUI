@@ -16,7 +16,7 @@ struct FavoriteView: View {
         
         Text("user: \(appData.userName)")
         Text("role:\(appData.userRole)")
-        Text("Token: \(appData.token)")
+        Text("Token: \(appData.address)")
     }
     
 }
